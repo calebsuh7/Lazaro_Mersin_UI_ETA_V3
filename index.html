@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lazaro_Mersin_Port_Route</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    html, body { margin: 0; height: 100%; }
+    #map { height: 100%; }
+
+    #controls {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 16px 20px;
+      z-index: 1000;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      font-family: sans-serif;
+      color: black;
+      text-align: center;
+      width: 300px;
+    }
+
+    #controls h2 {
+      margin-top: 0;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 6px 10px;
+      font-size: 13px;
+      min-width: 90px;
+    }
+
+    .info {
+      font-size: 13px;
+      margin: 3px 0;
+      color: black;
+    }
+
+    .info span.value {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <h2>Lazaro_Mersin_Port_Route</h2>
+
+    <div class="row">
+      <button onclick="setDirection('forward')">Lazaro → Mersin</button>
+      <button onclick="setDirection('backward')">Mersin → Lazaro</button>
+    </div>
+
+    <div class="row">
+      <button onclick="setSpeed(10)">10 kn</button>
+      <button onclick="setSpeed(13)">13 kn</button>
+      <button onclick="setSpeed(16)">16 kn</button>
+    </div>
+
+    <div class="row">
+      <button onclick="startShip()">Start</button>
+      <button onclick="stopShip()">Stop</button>
+    </div>
+
+    <div class="info">Total Route Distance: <span class="value" id="distance">-</span> km</div>
+    <div class="info">Speed: <span class="value" id="speed">-</span> kn</div>
+    <div class="info">Estimated Time of Arrival: <span class="value" id="eta">-</span> Days</div>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
